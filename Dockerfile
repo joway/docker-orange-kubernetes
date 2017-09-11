@@ -6,15 +6,6 @@ ENV ORANGE_PATH="/usr/local/orange"
 ARG LOR_VERSION="0.3.2"
 ENV ORANGE_VERSION="0.6.4"
 
-#  1) Set the bootstrap scripts
-#  2) Install yum dependencies
-#  3) Cleanup
-#  4) Install lor
-#  5) Install orange
-#  6) Cleanup
-#  8) Add User
-#  9) Add configuration file & bootstrap file
-# 10) Fix file permission
 RUN \
     yum-config-manager --add-repo https://openresty.org/yum/cn/centos/OpenResty.repo \
     && yum install -y epel-release \
@@ -52,5 +43,4 @@ RUN \
 
 EXPOSE 80 7777 9999
 
-# Daemon
 ENTRYPOINT ["docker-entrypoint.sh"]
